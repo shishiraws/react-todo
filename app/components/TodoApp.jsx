@@ -1,12 +1,12 @@
 var React = require('react');
 var UUID = require('node-uuid');
 
-var TodoList = require('TodoList');
-var AddTodo = require('AddTodo');
-var TodoSearch = require('TodoSearch');
+import TodoList from 'TodoList';
+import AddTodo from 'AddTodo';
+import TodoSearch from 'TodoSearch';
 var TodoAPI = require('TodoAPI');
 
-var TodoApp = React.createClass({
+export var TodoApp = React.createClass({
 
 	getInitialState: function () {
 		return {
@@ -61,10 +61,10 @@ var TodoApp = React.createClass({
 			<div>
 				<TodoSearch onSearch={this.handleSearch}/>
 				<TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
-				<AddTodo onAdd={this.handleAddTodo} />
+				<AddTodo/>
 			</div>
 		)
 	}
 });
 
-module.exports = TodoApp;
+export default TodoApp;

@@ -33,10 +33,11 @@ export var todosReducer = (state = [], action)  =>{
             return state.map((todo) => {
                 if(action.id === todo.id) {
                     return {
-                        ...todos,
+                        ...todo,
                         completed: !todo.completed
                     }
                 }
+                return todo;
             });
         default: return state;
     }
