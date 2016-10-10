@@ -18,7 +18,7 @@ module.exports = {
             localStorage.setItem('todos', JSON.stringify(todos));
             return todos;
         }
-    },
+    }, 
 
     filterTodos: function (todos, showCompleted, searchText) {
         var filteredTodos = todos;
@@ -46,6 +46,7 @@ module.exports = {
                 }
             });
         }
+
         return filteredTodos;
     }
 };

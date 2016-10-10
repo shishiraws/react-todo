@@ -23,27 +23,36 @@ export var todosReducer = (state = [], action)  =>{
         case 'ADD_TODO':
             return [
                 ...state,
-                {
-                    id: UUID(),
-                    text: action.text,
-                    completed: false
-                }
+                action.todo
             ];
         case 'ADD_TODOS':
             return [
                 ...state,
                 ...action.todos
             ];
-        case 'TOGGLE_TODO':
+        case 'UPDATE_TODO':
             return state.map((todo) => {
                 if(action.id === todo.id) {
                     return {
                         ...todo,
-                        completed: !todo.completed
+                        ...action.updates
                     }
                 }
                 return todo;
             });
         default: return state;
+    }
+};
+
+export var authReducer = (state = {}, action) => {
+    switch(action.type) {
+        case 'LOGIN':
+            return {
+                uuid: action.uuid
+            };
+        case 'LOGOUT':
+            return {};
+        default:
+            return state;
     }
 };
